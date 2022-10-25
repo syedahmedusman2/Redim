@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:redim/service/getCategories.dart';
+import 'package:redim/service/getTopBrands.dart';
 import 'package:redim/service/getUserInfo.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    getUserInfo(context);
+    getTopBrands(context);
+    getCetegoriesList(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +36,20 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-        body: Stack(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.34,
-              width: double.infinity,
-              color: Color(0xff24CAE1),
-              child: Column(
-                children: [
-                  Row(
-                    children: [],
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+        body: Consumer3(
+            builder: (context, userInfo, topCategories, topBrands, child) {
+          return Stack(
+            children: [
+              Container(
+                  height: MediaQuery.of(context).size.height * 0.34,
+                  width: double.infinity,
+                  color: Color(0xff24CAE1),
+                  child: Column(
+                    children: [Text("ss")],
+                  ))
+            ],
+          );
+          // your widget
+        }));
   }
 }
