@@ -7,6 +7,7 @@ import 'package:redim/service/getCategories.dart';
 import 'package:redim/service/getTopBrands.dart';
 import 'package:redim/service/getUserInfo.dart';
 import 'package:redim/widgets/topBrandWidget.dart';
+import 'package:redim/widgets/topCategoriesCard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -84,8 +85,9 @@ class _HomePageState extends State<HomePage> {
                             topRight: Radius.circular(20))),
                     child: Column(
                       children: [
+                        //Top Brands Section
                         Padding(
-                          padding: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 10, bottom: 5),
                           child: Row(
                             children: [
                               SizedBox(
@@ -108,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Container(
-                          height: 500,
+                          height: 180,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               shrinkWrap: true,
@@ -122,6 +124,51 @@ class _HomePageState extends State<HomePage> {
                                         .data!.data!.stores![index].percentNow,
                                     topBrands
                                         .data!.data!.stores![index].percentOld);
+                              }),
+                        ),
+                        // Top Categories Section
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 18,
+                              ),
+                              Text(
+                                "Top Categories",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              Spacer(),
+                              Text(
+                                "View All",
+                                style: TextStyle(color: Color(0xff25BAFB)),
+                              ),
+                              SizedBox(
+                                width: 18,
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 180,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount:
+                                  topCategories.data!.data!.categories!.length >
+                                          4
+                                      ? 4
+                                      : topCategories
+                                          .data!.data!.categories!.length,
+                              itemBuilder: (context, index) {
+                                return topCategoriesCard(
+                                    topCategories
+                                        .data!.data!.categories![index].color!,
+                                    topCategories
+                                        .data!.data!.categories![index].icon!,
+                                    topCategories
+                                        .data!.data!.categories![index].name!);
                               }),
                         )
                       ],
