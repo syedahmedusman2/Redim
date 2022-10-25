@@ -14,7 +14,7 @@ getUserInfo(context) async {
     'x-api-key': Constants.apiKey,
     'Authorization': 'Bearer ${Constants.token}'
   };
-  var response = await http.post(Uri.parse('${Constants.baseUrl}userinfo/7'),
+  var response = await http.get(Uri.parse('${Constants.baseUrl}userinfo/7'),
       headers: headers);
   if (response.statusCode == 200) {
     userInfoProvider

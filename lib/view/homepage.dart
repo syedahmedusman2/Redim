@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:redim/providers/categoriesProvider.dart';
+import 'package:redim/providers/topBrandsProvider.dart';
+import 'package:redim/providers/userInfoProvider.dart';
 import 'package:redim/service/getCategories.dart';
 import 'package:redim/service/getTopBrands.dart';
 import 'package:redim/service/getUserInfo.dart';
@@ -36,20 +39,80 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: Consumer3(
-            builder: (context, userInfo, topCategories, topBrands, child) {
-          return Stack(
-            children: [
-              Container(
-                  height: MediaQuery.of(context).size.height * 0.34,
-                  width: double.infinity,
-                  color: Color(0xff24CAE1),
-                  child: Column(
-                    children: [Text("ss")],
-                  ))
-            ],
+        body:
+            Consumer3<UserInfoProvider, CategoriesProvider, TopBrandsProvider>(
+                builder: (context, userInfo, topCategories, topBrands, child) {
+          return SizedBox(
+            height: double.infinity,
+            child: Stack(
+              children: [
+                Container(
+                    height: MediaQuery.of(context).size.height * 0.24,
+                    width: double.infinity,
+                    color: Color(0xff24CAE1),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 18, bottom: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hey, ${userInfo.data!.data!.user![0].name!}",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text("\$0,00",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 26)),
+                          ),
+                          Text("Portfolio Value",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18))
+                        ],
+                      ),
+                    )),
+                Positioned(
+                  top: 120,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 18,
+                              ),
+                              Text(
+                                "Top Brands",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              Spacer(),
+                              Text(
+                                "View All",
+                                style: TextStyle(color: Color(0xff25BAFB)),
+                              ),
+                              SizedBox(
+                                width: 18,
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
-          // your widget
         }));
   }
 }

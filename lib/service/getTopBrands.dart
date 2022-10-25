@@ -13,7 +13,7 @@ getTopBrands(context) async {
     'x-api-key': Constants.apiKey,
     'Authorization': 'Bearer ${Constants.token}'
   };
-  var response = await http.post(Uri.parse('${Constants.baseUrl}storelist/en'),
+  var response = await http.get(Uri.parse('${Constants.baseUrl}storelist/en'),
       headers: headers);
   if (response.statusCode == 200) {
     topBrandsProvider
