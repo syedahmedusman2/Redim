@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:redim/models/userInfoModels.dart';
 
 class UserInfoProvider extends ChangeNotifier {
-  UserInfoProvider? _userInfoData;
-  UserInfoProvider? get data => _userInfoData;
+  GetUserInfoModel? _userInfoData;
+  GetUserInfoModel? get data => _userInfoData;
 
-  setAppDataProvider(UserInfoProvider? getData) {
+  setUserInfo(GetUserInfoModel? getData) {
     _userInfoData = getData;
     notifyListeners();
   }

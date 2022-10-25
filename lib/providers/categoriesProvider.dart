@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:redim/models/categoriesModel.dart';
 
 class CategoriesProvider extends ChangeNotifier {
-  CategoriesProvider? _categoriesData;
-  CategoriesProvider? get data => _categoriesData;
+  CategoriesModel? _categoriesData;
+  CategoriesModel? get data => _categoriesData;
 
-  setAppDataProvider(CategoriesProvider? getData) {
+  setCategoriesData(CategoriesModel? getData) {
     print("Function main aagaya ho");
     _categoriesData = getData;
     notifyListeners();

@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:redim/models/topBrandsModel.dart';
 
 class TopBrandsProvider extends ChangeNotifier {
-  TopBrandsProvider? _topBrandsData;
-  TopBrandsProvider? get data => _topBrandsData;
+  TopBrandsModel? _topBrandsData;
+  TopBrandsModel? get data => _topBrandsData;
 
-  setAppDataProvider(TopBrandsProvider? getData) {
+  setTopBrands(TopBrandsModel? getData) {
     _topBrandsData = getData;
     notifyListeners();
   }
