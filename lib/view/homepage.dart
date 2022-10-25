@@ -32,7 +32,10 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Color(0xff24CAE1),
           centerTitle: false,
           elevation: 0,
-          title: Text("Redim"),
+          title: Text(
+            "Redim",
+            style: TextStyle(fontFamily: 'openSansBoldItalic', fontSize: 22),
+          ),
           actions: [
             Icon(Icons.notifications),
             Padding(
