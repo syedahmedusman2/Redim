@@ -6,6 +6,7 @@ import 'package:redim/providers/userInfoProvider.dart';
 import 'package:redim/service/getCategories.dart';
 import 'package:redim/service/getTopBrands.dart';
 import 'package:redim/service/getUserInfo.dart';
+import 'package:redim/widgets/topBrandWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -105,6 +106,23 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           ),
+                        ),
+                        Container(
+                          height: 500,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: topBrands.data!.data!.stores!.length,
+                              itemBuilder: (context, index) {
+                                return topBrandWidget(
+                                    topBrands.data!.data!.stores![index].name!,
+                                    topBrands.data!.data!.stores![index].logo!,
+                                    topBrands.data!.data!.stores![index].rating,
+                                    topBrands
+                                        .data!.data!.stores![index].percentNow,
+                                    topBrands
+                                        .data!.data!.stores![index].percentOld);
+                              }),
                         )
                       ],
                     ),
