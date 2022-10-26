@@ -9,10 +9,10 @@ class BottomBar extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       elevation: 5,
       child: Container(
-          height: 60,
+          height: 48,
           width: MediaQuery.of(context).size.width,
           margin: const EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class BottomBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               tapIcon('assets/images/home.png', "Home"),
-              tapIcon('assets/images/shopes.png', "All Shopes"),
+              tapIcon('assets/images/shopes.png', "All Shops"),
               tapIcon('assets/images/portfolio.jpg', "Portfolio"),
               tapIcon('assets/images/menu.png', "Menu"),
             ],

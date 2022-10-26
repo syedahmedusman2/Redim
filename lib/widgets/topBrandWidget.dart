@@ -11,10 +11,12 @@ Widget topBrandWidget(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(
-            image: NetworkImage(imageUrl.replaceAll(r"\", "")),
-            height: 100,
-            width: 80,
+          Center(
+            child: Image(
+              image: NetworkImage(imageUrl.replaceAll(r"\", "")),
+              height: 100,
+              width: 80,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0, bottom: 4),

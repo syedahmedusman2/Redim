@@ -6,9 +6,9 @@ class InviteYourFriends extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 110,
+        height: 100,
         width: MediaQuery.of(context).size.width,
-        margin: const EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         decoration: BoxDecoration(
             color: const Color(0xffE5F8FF),
             border: Border.all(color: const Color(0xffE5F8FF)),
